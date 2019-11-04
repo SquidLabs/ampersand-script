@@ -21,7 +21,6 @@ const execSync = require('child_process').execSync;
 const spawn = require('react-dev-utils/crossSpawn');
 const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
-const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 
 function isInGitRepository() {
   try {
@@ -53,7 +52,7 @@ function tryGitInit(appPath) {
     didInit = true;
 
     execSync('git add -A', { stdio: 'ignore' });
-    execSync('git commit -m "Initial commit from Create React App"', {
+    execSync('git commit -m "Initial commit from Create Ampersand App"', {
       stdio: 'ignore',
     });
     return true;
@@ -89,12 +88,12 @@ module.exports = function(
     console.log('');
     console.error(
       `A template was not provided. This is likely because you're using an outdated version of ${chalk.cyan(
-        'create-react-app'
+        'ampersand-script'
       )}.`
     );
     console.error(
       `Please note that global installs of ${chalk.cyan(
-        'create-react-app'
+        'ampersand-script'
       )} are no longer supported.`
     );
     return;
@@ -110,15 +109,15 @@ module.exports = function(
 
   // Setup the script rules
   appPackage.scripts = {
-    start: 'react-scripts start',
-    build: 'react-scripts build',
-    test: 'react-scripts test',
-    eject: 'react-scripts eject',
+    start: 'ampersand-scripts start',
+    build: 'ampersand-scripts build',
+    test: 'ampersand-scripts test',
+    eject: 'ampersand-scripts eject',
   };
 
   // Setup the eslint config
   appPackage.eslintConfig = {
-    extends: 'react-app',
+    extends: 'airbnb-base/legacy',
   };
 
   // Setup the browsers list
@@ -215,12 +214,12 @@ module.exports = function(
 
   // Install react and react-dom for backward compatibility with old CRA cli
   // which doesn't install react and react-dom along with react-scripts
-  if (!isReactInstalled(appPackage)) {
-    args = args.concat(['react', 'react-dom']);
+  if (!isAmpersandInstalled(appPackage)) {
+    args = args.concat(['ampersand-app', 'ampersand-view', 'ampersand-form-view', 'ampersand-router', 'ampersand-view-switcher', 'ampersand-input-view']);
   }
 
   // Install template dependencies, and react and react-dom if missing.
-  if ((!isReactInstalled(appPackage) || templateName) && args.length > 1) {
+  if ((!isAmpersandInstalled(appPackage) || templateName) && args.length > 1) {
     console.log();
     console.log(`Installing template dependencies using ${command}...`);
 
@@ -231,10 +230,6 @@ module.exports = function(
     }
   }
 
-  if (args.find(arg => arg.includes('typescript'))) {
-    console.log();
-    verifyTypeScriptSetup();
-  }
 
   // Remove template
   console.log(`Removing template package using ${command}...`);
@@ -307,11 +302,11 @@ module.exports = function(
   console.log('Happy hacking!');
 };
 
-function isReactInstalled(appPackage) {
+function isAmpersandInstalled(appPackage) {
   const dependencies = appPackage.dependencies || {};
 
   return (
-    typeof dependencies.react !== 'undefined' &&
-    typeof dependencies['react-dom'] !== 'undefined'
+    typeof dependencies['ampersand-app'] !== 'undefined' &&
+    typeof dependencies['ampersand-view'] !== 'undefined'
   );
 }

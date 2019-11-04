@@ -235,14 +235,14 @@ inquirer
     // Add Babel config
     console.log(`  Adding ${cyan('Babel')} preset`);
     appPackage.babel = {
-      presets: ['react-app'],
+      presets: ['@babel/preset-env'],
     };
 
     // Add ESlint config
     if (!appPackage.eslintConfig) {
       console.log(`  Adding ${cyan('ESLint')} configuration`);
       appPackage.eslintConfig = {
-        extends: 'react-app',
+        extends: 'airbnb-base/legacy',
       };
     }
 
@@ -264,7 +264,7 @@ inquirer
           content
             // Remove react-scripts types
             .replace(
-              /^\s*\/\/\/\s*<reference\s+types.+?"react-scripts".*\/>.*(?:\n|$)/gm,
+              /^\s*\/\/\/\s*<reference\s+types.+?"ampersand-scripts".*\/>.*(?:\n|$)/gm,
               ''
             )
             .trim() + os.EOL;
