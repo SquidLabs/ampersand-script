@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import View from 'ampersand-view';
 
 describe('dynamic import', () => {
   it('renders without crashing', async () => {
     const DynamicImport = (await import('./DynamicImport')).default;
     const div = document.createElement('div');
-    ReactDOM.render(<DynamicImport />, div);
+    let view = new View({ el: div, tempalte: DynamicImport}) ;
+    view.render();  
     expect(div.textContent).toBe('Hello World!');
   });
 });

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import './assets/scss-styles.scss';
+import './assets/less-styles.less';
 
-export default () => <p id="feature-scss-inclusion">We love useless text.</p>;
+export default () => `<p id="feature-less-inclusion">We love useless text.</p>`;

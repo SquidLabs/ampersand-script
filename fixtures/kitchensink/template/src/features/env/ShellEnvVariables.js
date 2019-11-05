@@ -5,10 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-
 export default () => (
-  <span id="feature-shell-env-variables">
-    {process.env.AMPERSAND_APP_SHELL_ENV_MESSAGE}.
-  </span>
+  `<span id="feature-shell-env-variables">
+    ${process.env.AMPERSAND_APP_SHELL_ENV_MESSAGE}.
+  </span>`
 );

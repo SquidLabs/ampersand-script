@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import View from 'ampersand-view';
 import SassInclusion from './SassInclusion';
 
-describe('sass inclusion', () => {
+describe('less inclusion', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<SassInclusion />, div);
+    let view = new View({el: div, template: SassInclusion})
+    view.render();
   });
 });

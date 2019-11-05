@@ -5,15 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import styles from './assets/scss-styles.module.scss';
-import indexStyles from './assets/index.module.scss';
+import styles from './assets/less-styles.module.less';
+import indexStyles from './assets/index.module.less';
 
 export default () => (
-  <div>
-    <p className={styles.scssModulesInclusion}>SCSS Modules are working!</p>
-    <p className={indexStyles.scssModulesIndexInclusion}>
+  `<div>
+    <p className=${styles.scssModulesInclusion}>SCSS Modules are working!</p>
+    <p className=${indexStyles.scssModulesIndexInclusion}>
       SCSS Modules with index are working!
     </p>
-  </div>
+  </div>`
 );

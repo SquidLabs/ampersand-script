@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
 import aFileWithoutExt from './assets/aFileWithoutExt';
 
 const text = aFileWithoutExt.includes('base64')
@@ -13,7 +12,7 @@ const text = aFileWithoutExt.includes('base64')
   : aFileWithoutExt;
 
 export default () => (
-  <a id="feature-no-ext-inclusion" href={text}>
+  `<a id="feature-no-ext-inclusion" href=${text}>
     aFileWithoutExt
-  </a>
+  </a>`
 );
