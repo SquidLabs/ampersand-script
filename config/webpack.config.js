@@ -349,6 +349,7 @@ module.exports = function(webpackEnv) {
           test: /\.(js)$/,
           enforce: 'pre',
           use: [
+            'babel-loader',
             {
               options: {
                 cache: true,
