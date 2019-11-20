@@ -2,6 +2,7 @@
   "name": "@squidlabs/ampersand-scripts",
   "version": "3.2.1",
   "description": "Configuration and scripts for AmpersandJS.",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/SquidLabs/ampersand-script.git"
