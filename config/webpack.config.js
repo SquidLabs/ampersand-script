@@ -561,7 +561,7 @@ module.exports = function (webpackEnv) {
             },
             {
               loader: require.resolve('handlebars-loader'),
-              test: [/\.hbs$/, /\.handlebars$/],
+              test: /\.(hbs|handlebars)$/,
               query: {
                 helperDirs: [
                     path.join(paths.appSrc, 'templates', 'helpers')
