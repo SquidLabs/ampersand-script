@@ -570,6 +570,10 @@ module.exports = function (webpackEnv) {
                     path.join(paths.appSrc, 'templates', 'partials')
                 ]
               }
+            },                       
+            {
+              loader: require.resolve('html-loader'),
+              test: /\.html$/
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
