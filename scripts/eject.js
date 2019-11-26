@@ -242,7 +242,7 @@ inquirer
     if (!appPackage.eslintConfig) {
       console.log(`  Adding ${cyan('ESLint')} configuration`);
       appPackage.eslintConfig = {
-        extends: 'airbnb-base/legacy',
+        extends: 'airbnb-base',
       };
     }
 
