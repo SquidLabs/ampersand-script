@@ -117,7 +117,7 @@ module.exports = function(
 
   // Setup the eslint config
   appPackage.eslintConfig = {
-    extends: 'airbnb-base',
+    extends: 'airbnb',
   };
 
   // Setup the browsers list
